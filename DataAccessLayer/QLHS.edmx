@@ -1,0 +1,1310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="QUANLYHOCSINHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_DanhMucLoi">
+          <Key>
+            <PropertyRef Name="MaLoi" />
+          </Key>
+          <Property Name="MaLoi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLoi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Diem" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_GiaoVien">
+          <Key>
+            <PropertyRef Name="MaGV" />
+          </Key>
+          <Property Name="MaGV" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Updated_Date" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_GiaoVien_Lop">
+          <Key>
+            <PropertyRef Name="MaGV_Lop" />
+          </Key>
+          <Property Name="MaGV_Lop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaGV" Type="int" />
+          <Property Name="MaLop" Type="int" />
+          <Property Name="MaNamHoc" Type="int" />
+          <Property Name="MaHK" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_HocKy">
+          <Key>
+            <PropertyRef Name="MaHK" />
+          </Key>
+          <Property Name="MaHK" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenHK" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeSo" Type="int" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Update_Date" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_HocSinh">
+          <Key>
+            <PropertyRef Name="MaHS" />
+          </Key>
+          <Property Name="MaHS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ten" Type="nvarchar" MaxLength="50" />
+          <Property Name="GioiTinh" Type="bit" />
+          <Property Name="NgaySinh" Type="datetime" />
+          <Property Name="MaDT" Type="int" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="20" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
+          <Property Name="MaTG" Type="int" />
+          <Property Name="MaLop" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_KetQua">
+          <Key>
+            <PropertyRef Name="MaKQ" />
+          </Key>
+          <Property Name="MaKQ" Type="int" Nullable="false" />
+          <Property Name="MaMH" Type="int" />
+          <Property Name="MaHS" Type="int" />
+          <Property Name="DiemKT" Type="float" />
+          <Property Name="DiemThiLan1" Type="float" />
+          <Property Name="DiemThiLan2" Type="float" />
+          <Property Name="DiemTB" Type="float" />
+          <Property Name="XepLoai" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaNamHoc" Type="int" />
+          <Property Name="MaHocKy" Type="int" />
+          <Property Name="MaLop" Type="int" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="int" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenLop" Type="nvarchar" MaxLength="50" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SapXep" Type="int" />
+          <Property Name="MaTruong" Type="int" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Updated_Date" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_MonHoc">
+          <Key>
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaMH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenMH" Type="nvarchar" MaxLength="50" />
+          <Property Name="HeSo" Type="int" />
+          <Property Name="SoTiet" Type="int" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Updated_Date" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_NamHoc">
+          <Key>
+            <PropertyRef Name="MaNamHoc" />
+          </Key>
+          <Property Name="MaNamHoc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenNamHoc" Type="nvarchar" MaxLength="50" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Updated_Date" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_Truong">
+          <Key>
+            <PropertyRef Name="MaTruong" />
+          </Key>
+          <Property Name="MaTruong" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TenTruong" Type="nvarchar" MaxLength="250" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="DienThoai" Type="nvarchar" MaxLength="20" />
+          <Property Name="DiaChi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Website" Type="nvarchar" MaxLength="50" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Updated_By" Type="int" />
+          <Property Name="Updated_Date" Type="datetime" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="FULLNAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="MASS" Type="nvarchar" MaxLength="50" />
+          <Property Name="MATRUONG" Type="int" />
+          <Property Name="MALOP" Type="int" />
+          <Property Name="PHONE" Type="nvarchar" MaxLength="50" />
+          <Property Name="EMAIL" Type="nvarchar" MaxLength="50" />
+          <Property Name="ADDRESS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_ViPham_CT">
+          <Key>
+            <PropertyRef Name="MaVPCT" />
+          </Key>
+          <Property Name="MaVPCT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MaViPham" Type="int" />
+          <Property Name="MaLoi" Type="int" />
+          <Property Name="TenLoi" Type="nvarchar" MaxLength="250" />
+          <Property Name="Diem" Type="int" />
+          <Property Name="MaHS" Type="int" />
+          <Property Name="NgayViPham" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tb_ViPham1">
+          <Key>
+            <PropertyRef Name="MaViPham" />
+          </Key>
+          <Property Name="MaViPham" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NgayViPham" Type="datetime" />
+          <Property Name="TongSoLoi" Type="int" />
+          <Property Name="TongDiem" Type="int" />
+          <Property Name="MaLop" Type="int" />
+          <Property Name="MaNamHoc" Type="int" />
+          <Property Name="MaHK" Type="int" />
+          <Property Name="GhiChu" Type="nvarchar" MaxLength="250" />
+          <Property Name="Created_By" Type="int" />
+          <Property Name="Created_Date" Type="datetime" />
+          <Property Name="Update_By" Type="int" />
+          <Property Name="Update_Date" Type="nvarchar" MaxLength="50" />
+          <Property Name="Deleted_By" Type="int" />
+          <Property Name="Deleted_Date" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_GiaoVien1">
+          <End Role="tb_GiaoVien" Type="Self.tb_GiaoVien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_GiaoVien_Lop" Type="Self.tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_GiaoVien">
+              <PropertyRef Name="MaGV" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaGV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_HocKy">
+          <End Role="tb_HocKy" Type="Self.tb_HocKy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_GiaoVien_Lop" Type="Self.tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaHK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_Lop">
+          <End Role="tb_Lop" Type="Self.tb_Lop" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_GiaoVien_Lop" Type="Self.tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_NamHoc">
+          <End Role="tb_NamHoc" Type="Self.tb_NamHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_GiaoVien_Lop" Type="Self.tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaNamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_HocKy">
+          <End Role="tb_HocKy" Type="Self.tb_HocKy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_KetQua" Type="Self.tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaHocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_HocSinh">
+          <End Role="tb_HocSinh" Type="Self.tb_HocSinh" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_KetQua" Type="Self.tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocSinh">
+              <PropertyRef Name="MaHS" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaHS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_Lop">
+          <End Role="tb_Lop" Type="Self.tb_Lop" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_KetQua" Type="Self.tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_MonHoc">
+          <End Role="tb_MonHoc" Type="Self.tb_MonHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_KetQua" Type="Self.tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_MonHoc">
+              <PropertyRef Name="MaMH" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_NamHoc">
+          <End Role="tb_NamHoc" Type="Self.tb_NamHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_KetQua" Type="Self.tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaNamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Lop_tb_Truong">
+          <End Role="tb_Truong" Type="Self.tb_Truong" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_Lop" Type="Self.tb_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Truong">
+              <PropertyRef Name="MaTruong" />
+            </Principal>
+            <Dependent Role="tb_Lop">
+              <PropertyRef Name="MaTruong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham_CT_tb_DanhMucLoi">
+          <End Role="tb_DanhMucLoi" Type="Self.tb_DanhMucLoi" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_ViPham_CT" Type="Self.tb_ViPham_CT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_DanhMucLoi">
+              <PropertyRef Name="MaLoi" />
+            </Principal>
+            <Dependent Role="tb_ViPham_CT">
+              <PropertyRef Name="MaLoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham_CT_tb_HocSinh">
+          <End Role="tb_HocSinh" Type="Self.tb_HocSinh" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_ViPham_CT" Type="Self.tb_ViPham_CT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocSinh">
+              <PropertyRef Name="MaHS" />
+            </Principal>
+            <Dependent Role="tb_ViPham_CT">
+              <PropertyRef Name="MaHS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham_CT_tb_ViPham1">
+          <End Role="tb_ViPham1" Type="Self.tb_ViPham1" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_ViPham_CT" Type="Self.tb_ViPham_CT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ViPham1">
+              <PropertyRef Name="MaViPham" />
+            </Principal>
+            <Dependent Role="tb_ViPham_CT">
+              <PropertyRef Name="MaViPham" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham1_tb_HocKy">
+          <End Role="tb_HocKy" Type="Self.tb_HocKy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_ViPham1" Type="Self.tb_ViPham1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="tb_ViPham1">
+              <PropertyRef Name="MaHK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham1_tb_Lop">
+          <End Role="tb_Lop" Type="Self.tb_Lop" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_ViPham1" Type="Self.tb_ViPham1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="tb_ViPham1">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham1_tb_NamHoc">
+          <End Role="tb_NamHoc" Type="Self.tb_NamHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="tb_ViPham1" Type="Self.tb_ViPham1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="tb_ViPham1">
+              <PropertyRef Name="MaNamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="QUANLYHOCSINHModelStoreContainer">
+          <EntitySet Name="tb_DanhMucLoi" EntityType="Self.tb_DanhMucLoi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_GiaoVien" EntityType="Self.tb_GiaoVien" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_GiaoVien_Lop" EntityType="Self.tb_GiaoVien_Lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_HocKy" EntityType="Self.tb_HocKy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_HocSinh" EntityType="Self.tb_HocSinh" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_KetQua" EntityType="Self.tb_KetQua" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Lop" EntityType="Self.tb_Lop" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_MonHoc" EntityType="Self.tb_MonHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_NamHoc" EntityType="Self.tb_NamHoc" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Truong" EntityType="Self.tb_Truong" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_User" EntityType="Self.tb_User" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ViPham_CT" EntityType="Self.tb_ViPham_CT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ViPham1" EntityType="Self.tb_ViPham1" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_GiaoVien1" Association="Self.FK_tb_GiaoVien_Lop_tb_GiaoVien1">
+            <End Role="tb_GiaoVien" EntitySet="tb_GiaoVien" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_HocKy" Association="Self.FK_tb_GiaoVien_Lop_tb_HocKy">
+            <End Role="tb_HocKy" EntitySet="tb_HocKy" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_Lop" Association="Self.FK_tb_GiaoVien_Lop_tb_Lop">
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_NamHoc" Association="Self.FK_tb_GiaoVien_Lop_tb_NamHoc">
+            <End Role="tb_NamHoc" EntitySet="tb_NamHoc" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_HocKy" Association="Self.FK_tb_KetQua_tb_HocKy">
+            <End Role="tb_HocKy" EntitySet="tb_HocKy" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_HocSinh" Association="Self.FK_tb_KetQua_tb_HocSinh">
+            <End Role="tb_HocSinh" EntitySet="tb_HocSinh" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_Lop" Association="Self.FK_tb_KetQua_tb_Lop">
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_MonHoc" Association="Self.FK_tb_KetQua_tb_MonHoc">
+            <End Role="tb_MonHoc" EntitySet="tb_MonHoc" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_NamHoc" Association="Self.FK_tb_KetQua_tb_NamHoc">
+            <End Role="tb_NamHoc" EntitySet="tb_NamHoc" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Lop_tb_Truong" Association="Self.FK_tb_Lop_tb_Truong">
+            <End Role="tb_Truong" EntitySet="tb_Truong" />
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham_CT_tb_DanhMucLoi" Association="Self.FK_tb_ViPham_CT_tb_DanhMucLoi">
+            <End Role="tb_DanhMucLoi" EntitySet="tb_DanhMucLoi" />
+            <End Role="tb_ViPham_CT" EntitySet="tb_ViPham_CT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham_CT_tb_HocSinh" Association="Self.FK_tb_ViPham_CT_tb_HocSinh">
+            <End Role="tb_HocSinh" EntitySet="tb_HocSinh" />
+            <End Role="tb_ViPham_CT" EntitySet="tb_ViPham_CT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham_CT_tb_ViPham1" Association="Self.FK_tb_ViPham_CT_tb_ViPham1">
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+            <End Role="tb_ViPham_CT" EntitySet="tb_ViPham_CT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham1_tb_HocKy" Association="Self.FK_tb_ViPham1_tb_HocKy">
+            <End Role="tb_HocKy" EntitySet="tb_HocKy" />
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham1_tb_Lop" Association="Self.FK_tb_ViPham1_tb_Lop">
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham1_tb_NamHoc" Association="Self.FK_tb_ViPham1_tb_NamHoc">
+            <End Role="tb_NamHoc" EntitySet="tb_NamHoc" />
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="QUANLYHOCSINHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="QUANLYHOCSINHEntities8" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_DanhMucLoi" EntityType="QUANLYHOCSINHModel.tb_DanhMucLoi" />
+          <EntitySet Name="tb_GiaoVien" EntityType="QUANLYHOCSINHModel.tb_GiaoVien" />
+          <EntitySet Name="tb_GiaoVien_Lop" EntityType="QUANLYHOCSINHModel.tb_GiaoVien_Lop" />
+          <EntitySet Name="tb_HocKy" EntityType="QUANLYHOCSINHModel.tb_HocKy" />
+          <EntitySet Name="tb_HocSinh" EntityType="QUANLYHOCSINHModel.tb_HocSinh" />
+          <EntitySet Name="tb_KetQua" EntityType="QUANLYHOCSINHModel.tb_KetQua" />
+          <EntitySet Name="tb_Lop" EntityType="QUANLYHOCSINHModel.tb_Lop" />
+          <EntitySet Name="tb_MonHoc" EntityType="QUANLYHOCSINHModel.tb_MonHoc" />
+          <EntitySet Name="tb_NamHoc" EntityType="QUANLYHOCSINHModel.tb_NamHoc" />
+          <EntitySet Name="tb_Truong" EntityType="QUANLYHOCSINHModel.tb_Truong" />
+          <EntitySet Name="tb_User" EntityType="QUANLYHOCSINHModel.tb_User" />
+          <EntitySet Name="tb_ViPham_CT" EntityType="QUANLYHOCSINHModel.tb_ViPham_CT" />
+          <EntitySet Name="tb_ViPham1" EntityType="QUANLYHOCSINHModel.tb_ViPham1" />
+          <AssociationSet Name="FK_tb_ViPham_CT_tb_DanhMucLoi" Association="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_DanhMucLoi">
+            <End Role="tb_DanhMucLoi" EntitySet="tb_DanhMucLoi" />
+            <End Role="tb_ViPham_CT" EntitySet="tb_ViPham_CT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_GiaoVien1" Association="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_GiaoVien1">
+            <End Role="tb_GiaoVien" EntitySet="tb_GiaoVien" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_HocKy" Association="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_HocKy">
+            <End Role="tb_HocKy" EntitySet="tb_HocKy" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_Lop" Association="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_Lop">
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_GiaoVien_Lop_tb_NamHoc" Association="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_NamHoc">
+            <End Role="tb_NamHoc" EntitySet="tb_NamHoc" />
+            <End Role="tb_GiaoVien_Lop" EntitySet="tb_GiaoVien_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_HocKy" Association="QUANLYHOCSINHModel.FK_tb_KetQua_tb_HocKy">
+            <End Role="tb_HocKy" EntitySet="tb_HocKy" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham1_tb_HocKy" Association="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_HocKy">
+            <End Role="tb_HocKy" EntitySet="tb_HocKy" />
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_HocSinh" Association="QUANLYHOCSINHModel.FK_tb_KetQua_tb_HocSinh">
+            <End Role="tb_HocSinh" EntitySet="tb_HocSinh" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham_CT_tb_HocSinh" Association="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_HocSinh">
+            <End Role="tb_HocSinh" EntitySet="tb_HocSinh" />
+            <End Role="tb_ViPham_CT" EntitySet="tb_ViPham_CT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_Lop" Association="QUANLYHOCSINHModel.FK_tb_KetQua_tb_Lop">
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_MonHoc" Association="QUANLYHOCSINHModel.FK_tb_KetQua_tb_MonHoc">
+            <End Role="tb_MonHoc" EntitySet="tb_MonHoc" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_KetQua_tb_NamHoc" Association="QUANLYHOCSINHModel.FK_tb_KetQua_tb_NamHoc">
+            <End Role="tb_NamHoc" EntitySet="tb_NamHoc" />
+            <End Role="tb_KetQua" EntitySet="tb_KetQua" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Lop_tb_Truong" Association="QUANLYHOCSINHModel.FK_tb_Lop_tb_Truong">
+            <End Role="tb_Truong" EntitySet="tb_Truong" />
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham1_tb_Lop" Association="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_Lop">
+            <End Role="tb_Lop" EntitySet="tb_Lop" />
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham1_tb_NamHoc" Association="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_NamHoc">
+            <End Role="tb_NamHoc" EntitySet="tb_NamHoc" />
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_ViPham_CT_tb_ViPham1" Association="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_ViPham1">
+            <End Role="tb_ViPham1" EntitySet="tb_ViPham1" />
+            <End Role="tb_ViPham_CT" EntitySet="tb_ViPham_CT" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="tb_DanhMucLoi">
+          <Key>
+            <PropertyRef Name="MaLoi" />
+          </Key>
+          <Property Name="MaLoi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLoi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Diem" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_ViPham_CT" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_DanhMucLoi" FromRole="tb_DanhMucLoi" ToRole="tb_ViPham_CT" />
+        </EntityType>
+        <EntityType Name="tb_GiaoVien">
+          <Key>
+            <PropertyRef Name="MaGV" />
+          </Key>
+          <Property Name="MaGV" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_GiaoVien_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_GiaoVien1" FromRole="tb_GiaoVien" ToRole="tb_GiaoVien_Lop" />
+        </EntityType>
+        <EntityType Name="tb_GiaoVien_Lop">
+          <Key>
+            <PropertyRef Name="MaGV_Lop" />
+          </Key>
+          <Property Name="MaGV_Lop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaGV" Type="Int32" />
+          <Property Name="MaLop" Type="Int32" />
+          <Property Name="MaNamHoc" Type="Int32" />
+          <Property Name="MaHK" Type="Int32" />
+          <NavigationProperty Name="tb_GiaoVien" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_GiaoVien1" FromRole="tb_GiaoVien_Lop" ToRole="tb_GiaoVien" />
+          <NavigationProperty Name="tb_HocKy" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_HocKy" FromRole="tb_GiaoVien_Lop" ToRole="tb_HocKy" />
+          <NavigationProperty Name="tb_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_Lop" FromRole="tb_GiaoVien_Lop" ToRole="tb_Lop" />
+          <NavigationProperty Name="tb_NamHoc" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_NamHoc" FromRole="tb_GiaoVien_Lop" ToRole="tb_NamHoc" />
+        </EntityType>
+        <EntityType Name="tb_HocKy">
+          <Key>
+            <PropertyRef Name="MaHK" />
+          </Key>
+          <Property Name="MaHK" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenHK" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeSo" Type="Int32" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Update_Date" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_GiaoVien_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_HocKy" FromRole="tb_HocKy" ToRole="tb_GiaoVien_Lop" />
+          <NavigationProperty Name="tb_KetQua" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_HocKy" FromRole="tb_HocKy" ToRole="tb_KetQua" />
+          <NavigationProperty Name="tb_ViPham1" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_HocKy" FromRole="tb_HocKy" ToRole="tb_ViPham1" />
+        </EntityType>
+        <EntityType Name="tb_HocSinh">
+          <Key>
+            <PropertyRef Name="MaHS" />
+          </Key>
+          <Property Name="MaHS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HoTen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ten" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GioiTinh" Type="Boolean" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+          <Property Name="MaDT" Type="Int32" />
+          <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="MaTG" Type="Int32" />
+          <Property Name="MaLop" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_KetQua" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_HocSinh" FromRole="tb_HocSinh" ToRole="tb_KetQua" />
+          <NavigationProperty Name="tb_ViPham_CT" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_HocSinh" FromRole="tb_HocSinh" ToRole="tb_ViPham_CT" />
+        </EntityType>
+        <EntityType Name="tb_KetQua">
+          <Key>
+            <PropertyRef Name="MaKQ" />
+          </Key>
+          <Property Name="MaKQ" Type="Int32" Nullable="false" />
+          <Property Name="MaMH" Type="Int32" />
+          <Property Name="MaHS" Type="Int32" />
+          <Property Name="DiemKT" Type="Double" />
+          <Property Name="DiemThiLan1" Type="Double" />
+          <Property Name="DiemThiLan2" Type="Double" />
+          <Property Name="DiemTB" Type="Double" />
+          <Property Name="XepLoai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaNamHoc" Type="Int32" />
+          <Property Name="MaHocKy" Type="Int32" />
+          <Property Name="MaLop" Type="Int32" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="Int32" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_HocKy" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_HocKy" FromRole="tb_KetQua" ToRole="tb_HocKy" />
+          <NavigationProperty Name="tb_HocSinh" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_HocSinh" FromRole="tb_KetQua" ToRole="tb_HocSinh" />
+          <NavigationProperty Name="tb_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_Lop" FromRole="tb_KetQua" ToRole="tb_Lop" />
+          <NavigationProperty Name="tb_MonHoc" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_MonHoc" FromRole="tb_KetQua" ToRole="tb_MonHoc" />
+          <NavigationProperty Name="tb_NamHoc" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_NamHoc" FromRole="tb_KetQua" ToRole="tb_NamHoc" />
+        </EntityType>
+        <EntityType Name="tb_Lop">
+          <Key>
+            <PropertyRef Name="MaLop" />
+          </Key>
+          <Property Name="MaLop" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenLop" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SapXep" Type="Int32" />
+          <Property Name="MaTruong" Type="Int32" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_GiaoVien_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_Lop" FromRole="tb_Lop" ToRole="tb_GiaoVien_Lop" />
+          <NavigationProperty Name="tb_KetQua" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_Lop" FromRole="tb_Lop" ToRole="tb_KetQua" />
+          <NavigationProperty Name="tb_Truong" Relationship="QUANLYHOCSINHModel.FK_tb_Lop_tb_Truong" FromRole="tb_Lop" ToRole="tb_Truong" />
+          <NavigationProperty Name="tb_ViPham1" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_Lop" FromRole="tb_Lop" ToRole="tb_ViPham1" />
+        </EntityType>
+        <EntityType Name="tb_MonHoc">
+          <Key>
+            <PropertyRef Name="MaMH" />
+          </Key>
+          <Property Name="MaMH" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenMH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HeSo" Type="Int32" />
+          <Property Name="SoTiet" Type="Int32" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_KetQua" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_MonHoc" FromRole="tb_MonHoc" ToRole="tb_KetQua" />
+        </EntityType>
+        <EntityType Name="tb_NamHoc">
+          <Key>
+            <PropertyRef Name="MaNamHoc" />
+          </Key>
+          <Property Name="MaNamHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenNamHoc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_GiaoVien_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_GiaoVien_Lop_tb_NamHoc" FromRole="tb_NamHoc" ToRole="tb_GiaoVien_Lop" />
+          <NavigationProperty Name="tb_KetQua" Relationship="QUANLYHOCSINHModel.FK_tb_KetQua_tb_NamHoc" FromRole="tb_NamHoc" ToRole="tb_KetQua" />
+          <NavigationProperty Name="tb_ViPham1" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_NamHoc" FromRole="tb_NamHoc" ToRole="tb_ViPham1" />
+        </EntityType>
+        <EntityType Name="tb_Truong">
+          <Key>
+            <PropertyRef Name="MaTruong" />
+          </Key>
+          <Property Name="MaTruong" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TenTruong" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DienThoai" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DiaChi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Website" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Updated_By" Type="Int32" />
+          <Property Name="Updated_Date" Type="DateTime" Precision="3" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_Lop_tb_Truong" FromRole="tb_Truong" ToRole="tb_Lop" />
+        </EntityType>
+        <EntityType Name="tb_User">
+          <Key>
+            <PropertyRef Name="UID" />
+          </Key>
+          <Property Name="UID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FULLNAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MASS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MATRUONG" Type="Int32" />
+          <Property Name="MALOP" Type="Int32" />
+          <Property Name="PHONE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EMAIL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ADDRESS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tb_ViPham_CT">
+          <Key>
+            <PropertyRef Name="MaVPCT" />
+          </Key>
+          <Property Name="MaVPCT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MaViPham" Type="Int32" />
+          <Property Name="MaLoi" Type="Int32" />
+          <Property Name="TenLoi" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Diem" Type="Int32" />
+          <Property Name="MaHS" Type="Int32" />
+          <Property Name="NgayViPham" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_DanhMucLoi" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_DanhMucLoi" FromRole="tb_ViPham_CT" ToRole="tb_DanhMucLoi" />
+          <NavigationProperty Name="tb_HocSinh" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_HocSinh" FromRole="tb_ViPham_CT" ToRole="tb_HocSinh" />
+          <NavigationProperty Name="tb_ViPham1" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_ViPham1" FromRole="tb_ViPham_CT" ToRole="tb_ViPham1" />
+        </EntityType>
+        <EntityType Name="tb_ViPham1">
+          <Key>
+            <PropertyRef Name="MaViPham" />
+          </Key>
+          <Property Name="MaViPham" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NgayViPham" Type="DateTime" Precision="3" />
+          <Property Name="TongSoLoi" Type="Int32" />
+          <Property Name="TongDiem" Type="Int32" />
+          <Property Name="MaLop" Type="Int32" />
+          <Property Name="MaNamHoc" Type="Int32" />
+          <Property Name="MaHK" Type="Int32" />
+          <Property Name="GhiChu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="Int32" />
+          <Property Name="Created_Date" Type="DateTime" Precision="3" />
+          <Property Name="Update_By" Type="Int32" />
+          <Property Name="Update_Date" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Deleted_By" Type="Int32" />
+          <Property Name="Deleted_Date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tb_HocKy" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_HocKy" FromRole="tb_ViPham1" ToRole="tb_HocKy" />
+          <NavigationProperty Name="tb_Lop" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_Lop" FromRole="tb_ViPham1" ToRole="tb_Lop" />
+          <NavigationProperty Name="tb_NamHoc" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham1_tb_NamHoc" FromRole="tb_ViPham1" ToRole="tb_NamHoc" />
+          <NavigationProperty Name="tb_ViPham_CT" Relationship="QUANLYHOCSINHModel.FK_tb_ViPham_CT_tb_ViPham1" FromRole="tb_ViPham1" ToRole="tb_ViPham_CT" />
+        </EntityType>
+        <Association Name="FK_tb_ViPham_CT_tb_DanhMucLoi">
+          <End Type="QUANLYHOCSINHModel.tb_DanhMucLoi" Role="tb_DanhMucLoi" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_ViPham_CT" Role="tb_ViPham_CT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_DanhMucLoi">
+              <PropertyRef Name="MaLoi" />
+            </Principal>
+            <Dependent Role="tb_ViPham_CT">
+              <PropertyRef Name="MaLoi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_GiaoVien1">
+          <End Type="QUANLYHOCSINHModel.tb_GiaoVien" Role="tb_GiaoVien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_GiaoVien_Lop" Role="tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_GiaoVien">
+              <PropertyRef Name="MaGV" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaGV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_HocKy">
+          <End Type="QUANLYHOCSINHModel.tb_HocKy" Role="tb_HocKy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_GiaoVien_Lop" Role="tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaHK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_Lop">
+          <End Type="QUANLYHOCSINHModel.tb_Lop" Role="tb_Lop" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_GiaoVien_Lop" Role="tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_GiaoVien_Lop_tb_NamHoc">
+          <End Type="QUANLYHOCSINHModel.tb_NamHoc" Role="tb_NamHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_GiaoVien_Lop" Role="tb_GiaoVien_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="tb_GiaoVien_Lop">
+              <PropertyRef Name="MaNamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_HocKy">
+          <End Type="QUANLYHOCSINHModel.tb_HocKy" Role="tb_HocKy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_KetQua" Role="tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaHocKy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham1_tb_HocKy">
+          <End Type="QUANLYHOCSINHModel.tb_HocKy" Role="tb_HocKy" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_ViPham1" Role="tb_ViPham1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocKy">
+              <PropertyRef Name="MaHK" />
+            </Principal>
+            <Dependent Role="tb_ViPham1">
+              <PropertyRef Name="MaHK" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_HocSinh">
+          <End Type="QUANLYHOCSINHModel.tb_HocSinh" Role="tb_HocSinh" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_KetQua" Role="tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocSinh">
+              <PropertyRef Name="MaHS" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaHS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham_CT_tb_HocSinh">
+          <End Type="QUANLYHOCSINHModel.tb_HocSinh" Role="tb_HocSinh" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_ViPham_CT" Role="tb_ViPham_CT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_HocSinh">
+              <PropertyRef Name="MaHS" />
+            </Principal>
+            <Dependent Role="tb_ViPham_CT">
+              <PropertyRef Name="MaHS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_Lop">
+          <End Type="QUANLYHOCSINHModel.tb_Lop" Role="tb_Lop" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_KetQua" Role="tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_MonHoc">
+          <End Type="QUANLYHOCSINHModel.tb_MonHoc" Role="tb_MonHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_KetQua" Role="tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_MonHoc">
+              <PropertyRef Name="MaMH" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaMH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_KetQua_tb_NamHoc">
+          <End Type="QUANLYHOCSINHModel.tb_NamHoc" Role="tb_NamHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_KetQua" Role="tb_KetQua" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="tb_KetQua">
+              <PropertyRef Name="MaNamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Lop_tb_Truong">
+          <End Type="QUANLYHOCSINHModel.tb_Truong" Role="tb_Truong" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_Lop" Role="tb_Lop" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Truong">
+              <PropertyRef Name="MaTruong" />
+            </Principal>
+            <Dependent Role="tb_Lop">
+              <PropertyRef Name="MaTruong" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham1_tb_Lop">
+          <End Type="QUANLYHOCSINHModel.tb_Lop" Role="tb_Lop" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_ViPham1" Role="tb_ViPham1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Lop">
+              <PropertyRef Name="MaLop" />
+            </Principal>
+            <Dependent Role="tb_ViPham1">
+              <PropertyRef Name="MaLop" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham1_tb_NamHoc">
+          <End Type="QUANLYHOCSINHModel.tb_NamHoc" Role="tb_NamHoc" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_ViPham1" Role="tb_ViPham1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_NamHoc">
+              <PropertyRef Name="MaNamHoc" />
+            </Principal>
+            <Dependent Role="tb_ViPham1">
+              <PropertyRef Name="MaNamHoc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_ViPham_CT_tb_ViPham1">
+          <End Type="QUANLYHOCSINHModel.tb_ViPham1" Role="tb_ViPham1" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="QUANLYHOCSINHModel.tb_ViPham_CT" Role="tb_ViPham_CT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ViPham1">
+              <PropertyRef Name="MaViPham" />
+            </Principal>
+            <Dependent Role="tb_ViPham_CT">
+              <PropertyRef Name="MaViPham" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="QUANLYHOCSINHModelStoreContainer" CdmEntityContainer="QUANLYHOCSINHEntities8">
+          <EntitySetMapping Name="tb_DanhMucLoi">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_DanhMucLoi">
+              <MappingFragment StoreEntitySet="tb_DanhMucLoi">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="Diem" ColumnName="Diem" />
+                <ScalarProperty Name="TenLoi" ColumnName="TenLoi" />
+                <ScalarProperty Name="MaLoi" ColumnName="MaLoi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_GiaoVien">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_GiaoVien">
+              <MappingFragment StoreEntitySet="tb_GiaoVien">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_GiaoVien_Lop">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_GiaoVien_Lop">
+              <MappingFragment StoreEntitySet="tb_GiaoVien_Lop">
+                <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+                <ScalarProperty Name="MaNamHoc" ColumnName="MaNamHoc" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="MaGV" ColumnName="MaGV" />
+                <ScalarProperty Name="MaGV_Lop" ColumnName="MaGV_Lop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_HocKy">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_HocKy">
+              <MappingFragment StoreEntitySet="tb_HocKy">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="HeSo" ColumnName="HeSo" />
+                <ScalarProperty Name="TenHK" ColumnName="TenHK" />
+                <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_HocSinh">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_HocSinh">
+              <MappingFragment StoreEntitySet="tb_HocSinh">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="MaTG" ColumnName="MaTG" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="MaDT" ColumnName="MaDT" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+                <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+                <ScalarProperty Name="Ten" ColumnName="Ten" />
+                <ScalarProperty Name="HoTen" ColumnName="HoTen" />
+                <ScalarProperty Name="MaHS" ColumnName="MaHS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_KetQua">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_KetQua">
+              <MappingFragment StoreEntitySet="tb_KetQua">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="MaHocKy" ColumnName="MaHocKy" />
+                <ScalarProperty Name="MaNamHoc" ColumnName="MaNamHoc" />
+                <ScalarProperty Name="XepLoai" ColumnName="XepLoai" />
+                <ScalarProperty Name="DiemTB" ColumnName="DiemTB" />
+                <ScalarProperty Name="DiemThiLan2" ColumnName="DiemThiLan2" />
+                <ScalarProperty Name="DiemThiLan1" ColumnName="DiemThiLan1" />
+                <ScalarProperty Name="DiemKT" ColumnName="DiemKT" />
+                <ScalarProperty Name="MaHS" ColumnName="MaHS" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+                <ScalarProperty Name="MaKQ" ColumnName="MaKQ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Lop">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_Lop">
+              <MappingFragment StoreEntitySet="tb_Lop">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="MaTruong" ColumnName="MaTruong" />
+                <ScalarProperty Name="SapXep" ColumnName="SapXep" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="TenLop" ColumnName="TenLop" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_MonHoc">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_MonHoc">
+              <MappingFragment StoreEntitySet="tb_MonHoc">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="SoTiet" ColumnName="SoTiet" />
+                <ScalarProperty Name="HeSo" ColumnName="HeSo" />
+                <ScalarProperty Name="TenMH" ColumnName="TenMH" />
+                <ScalarProperty Name="MaMH" ColumnName="MaMH" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_NamHoc">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_NamHoc">
+              <MappingFragment StoreEntitySet="tb_NamHoc">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="TenNamHoc" ColumnName="TenNamHoc" />
+                <ScalarProperty Name="MaNamHoc" ColumnName="MaNamHoc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Truong">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_Truong">
+              <MappingFragment StoreEntitySet="tb_Truong">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="Updated_Date" ColumnName="Updated_Date" />
+                <ScalarProperty Name="Updated_By" ColumnName="Updated_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
+                <ScalarProperty Name="DienThoai" ColumnName="DienThoai" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TenTruong" ColumnName="TenTruong" />
+                <ScalarProperty Name="MaTruong" ColumnName="MaTruong" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_User">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_User">
+              <MappingFragment StoreEntitySet="tb_User">
+                <ScalarProperty Name="ADDRESS" ColumnName="ADDRESS" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="PHONE" ColumnName="PHONE" />
+                <ScalarProperty Name="MALOP" ColumnName="MALOP" />
+                <ScalarProperty Name="MATRUONG" ColumnName="MATRUONG" />
+                <ScalarProperty Name="MASS" ColumnName="MASS" />
+                <ScalarProperty Name="FULLNAME" ColumnName="FULLNAME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="UID" ColumnName="UID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ViPham_CT">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_ViPham_CT">
+              <MappingFragment StoreEntitySet="tb_ViPham_CT">
+                <ScalarProperty Name="NgayViPham" ColumnName="NgayViPham" />
+                <ScalarProperty Name="MaHS" ColumnName="MaHS" />
+                <ScalarProperty Name="Diem" ColumnName="Diem" />
+                <ScalarProperty Name="TenLoi" ColumnName="TenLoi" />
+                <ScalarProperty Name="MaLoi" ColumnName="MaLoi" />
+                <ScalarProperty Name="MaViPham" ColumnName="MaViPham" />
+                <ScalarProperty Name="MaVPCT" ColumnName="MaVPCT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ViPham1">
+            <EntityTypeMapping TypeName="QUANLYHOCSINHModel.tb_ViPham1">
+              <MappingFragment StoreEntitySet="tb_ViPham1">
+                <ScalarProperty Name="Deleted_Date" ColumnName="Deleted_Date" />
+                <ScalarProperty Name="Deleted_By" ColumnName="Deleted_By" />
+                <ScalarProperty Name="Update_Date" ColumnName="Update_Date" />
+                <ScalarProperty Name="Update_By" ColumnName="Update_By" />
+                <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+                <ScalarProperty Name="MaHK" ColumnName="MaHK" />
+                <ScalarProperty Name="MaNamHoc" ColumnName="MaNamHoc" />
+                <ScalarProperty Name="MaLop" ColumnName="MaLop" />
+                <ScalarProperty Name="TongDiem" ColumnName="TongDiem" />
+                <ScalarProperty Name="TongSoLoi" ColumnName="TongSoLoi" />
+                <ScalarProperty Name="NgayViPham" ColumnName="NgayViPham" />
+                <ScalarProperty Name="MaViPham" ColumnName="MaViPham" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
